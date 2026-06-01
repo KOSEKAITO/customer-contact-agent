@@ -1,0 +1,4 @@
+.streamlit/secrets.toml
+send_log.csv
+__pycache__/
+*.pyc

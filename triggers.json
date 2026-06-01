@@ -1,0 +1,308 @@
+[
+  {
+    "id": 1,
+    "phase": "商談前",
+    "process_ref": "#5-1",
+    "name": "商談予約確認",
+    "pattern": "能動",
+    "template_id": "A-2",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "予約日時",
+      "予約時間",
+      "オンライン手段",
+      "参加URL"
+    ],
+    "description": "商談予約完了後、確認連絡を送る"
+  },
+  {
+    "id": 2,
+    "phase": "商談前",
+    "process_ref": "#5-1",
+    "name": "商談リマインド（3日前）",
+    "pattern": "能動",
+    "template_id": "A-3",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "予約時間",
+      "オンライン手段",
+      "参加URL",
+      "画像URL"
+    ],
+    "description": "商談3日前のリマインド"
+  },
+  {
+    "id": 3,
+    "phase": "商談前",
+    "process_ref": "#5-1",
+    "name": "商談リマインド（前日）",
+    "pattern": "能動",
+    "template_id": "A-3",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "予約時間",
+      "オンライン手段",
+      "参加URL",
+      "画像URL"
+    ],
+    "description": "商談前日のリマインド"
+  },
+  {
+    "id": 4,
+    "phase": "商談前",
+    "process_ref": "#5-1",
+    "name": "商談リマインド（1時間前）",
+    "pattern": "能動",
+    "template_id": "A-3",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "予約時間",
+      "オンライン手段",
+      "参加URL",
+      "画像URL"
+    ],
+    "description": "商談1時間前のリマインド"
+  },
+  {
+    "id": 5,
+    "phase": "商談前",
+    "process_ref": "#5-1",
+    "name": "写真UL催促",
+    "pattern": "能動",
+    "template_id": "A-20",
+    "template_status": "新規",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "画像URL"
+    ],
+    "description": "写真未提出の場合のアップロード催促"
+  },
+  {
+    "id": 6,
+    "phase": "商談前",
+    "process_ref": "#3-2",
+    "name": "ヒアリング未返信リマインド",
+    "pattern": "能動",
+    "template_id": "A-21",
+    "template_status": "新規",
+    "questions": [],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "LINEヒアリング未返信時のリマインド"
+  },
+  {
+    "id": 7,
+    "phase": "追客",
+    "process_ref": "#7-1",
+    "name": "再商談誘導",
+    "pattern": "能動",
+    "template_id": "A-4",
+    "template_status": "調整",
+    "questions": [
+      {
+        "key": "前回商談ポイント",
+        "label": "前回の商談内容のポイントを入力してください",
+        "required": false
+      }
+    ],
+    "auto_variables": [
+      "顧客名",
+      "予約URL"
+    ],
+    "description": "不成立・キャンセル後の再商談誘導"
+  },
+  {
+    "id": 8,
+    "phase": "追客",
+    "process_ref": "#7-1",
+    "name": "フォロー連絡",
+    "pattern": "能動",
+    "template_id": "A-22",
+    "template_status": "新規",
+    "questions": [],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "再商談誘導後、未返信時のフォロー（3日以内）"
+  },
+  {
+    "id": 9,
+    "phase": "契約前後",
+    "process_ref": "#7-3, #8-1",
+    "name": "契約情報入力依頼＋契約後フロー案内",
+    "pattern": "受動/能動",
+    "template_id": "A-6",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "フォームURL"
+    ],
+    "description": "契約確約後のフロー案内とフォーム入力依頼（1通に統合）"
+  },
+  {
+    "id": 10,
+    "phase": "契約前後",
+    "process_ref": "#8-1",
+    "name": "陸送候補日ヒアリング",
+    "pattern": "能動",
+    "template_id": "A-10",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名",
+      "基準日"
+    ],
+    "description": "署名完了後、陸送日程の候補を聞く"
+  },
+  {
+    "id": 11,
+    "phase": "契約前後",
+    "process_ref": "#8-1",
+    "name": "陸送日程確定",
+    "pattern": "能動",
+    "template_id": "A-16",
+    "template_status": "既存",
+    "questions": [
+      {
+        "key": "確定日程",
+        "label": "確定した引き上げ日時を入力してください（例：5/13 15:00）",
+        "required": true
+      }
+    ],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "陸送会社と調整完了後、顧客に日程を報告"
+  },
+  {
+    "id": 12,
+    "phase": "契約前後",
+    "process_ref": "#8-1",
+    "name": "書類催促",
+    "pattern": "受動/能動",
+    "template_id": "A-12",
+    "template_status": "既存",
+    "questions": [],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "必要書類未返送時の催促"
+  },
+  {
+    "id": 13,
+    "phase": "支払・入金",
+    "process_ref": "#9-2",
+    "name": "残債不足分請求案内",
+    "pattern": "能動",
+    "template_id": "A-23",
+    "template_status": "新規",
+    "questions": [
+      {
+        "key": "請求金額",
+        "label": "請求金額を入力してください（例：150000）",
+        "required": true
+      }
+    ],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "残債不足金額確定後の請求案内"
+  },
+  {
+    "id": 14,
+    "phase": "支払・入金",
+    "process_ref": "#9-2",
+    "name": "支払催促",
+    "pattern": "能動",
+    "template_id": "A-24",
+    "template_status": "新規",
+    "questions": [],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "支払期日超過時の催促"
+  },
+  {
+    "id": 15,
+    "phase": "支払・入金",
+    "process_ref": "#10-1",
+    "name": "入金日確定報告",
+    "pattern": "能動",
+    "template_id": "A-18",
+    "template_status": "既存",
+    "questions": [
+      {
+        "key": "入金目安",
+        "label": "入金予定日を入力してください（例：5/20）",
+        "required": true
+      }
+    ],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "社内の支払申請承認後、入金予定日を報告"
+  },
+  {
+    "id": 16,
+    "phase": "支払・入金",
+    "process_ref": "#10-1",
+    "name": "入金完了報告",
+    "pattern": "能動",
+    "template_id": "A-25",
+    "template_status": "新規",
+    "questions": [
+      {
+        "key": "入金日",
+        "label": "入金日を入力してください（例：5/20）",
+        "required": true
+      }
+    ],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "入金処理完了後の報告"
+  },
+  {
+    "id": 17,
+    "phase": "サービス案内",
+    "process_ref": "#8-1",
+    "name": "マイくるプラス案内",
+    "pattern": "能動",
+    "template_id": "A-26",
+    "template_status": "新規",
+    "questions": [],
+    "auto_variables": [
+      "顧客名"
+    ],
+    "description": "契約手続き完了後のサブスクサービス案内"
+  },
+  {
+    "id": 18,
+    "phase": "包括",
+    "process_ref": "-",
+    "name": "顧客からの定型連絡への返信",
+    "pattern": "受動",
+    "template_id": "AUTO",
+    "template_status": "既存",
+    "questions": [
+      {
+        "key": "受信メール本文",
+        "label": "顧客から受信したメール本文を貼り付けてください",
+        "required": true
+      }
+    ],
+    "auto_variables": [],
+    "description": "顧客からのメール/LINEを解析し、適切なテンプレートを自動選択してドラフト生成"
+  }
+]
