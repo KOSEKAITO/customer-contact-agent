@@ -241,6 +241,10 @@ st.set_page_config(page_title="顧客連絡AIエージェント", page_icon="�
 st.title("📧 顧客連絡AIエージェント")
 st.caption("ステップ1：トリガー選択 → ドラフト生成 → 許可ボタンで送信")
 
+# 案件種別の選択（最上位レイヤー）
+deal_type = st.sidebar.selectbox("案件種別", ["🚗 買取", "🏷️ 車販"], index=0, key="deal_type")
+st.sidebar.markdown("---")
+
 mode = st.sidebar.radio("モード選択", ["🔵 能動的連絡（こちらから送る）", "🟢 受動的連絡（返信を作成）", "⚙️ テンプレート管理"], index=0)
 
 st.sidebar.markdown("---")
@@ -254,29 +258,38 @@ else:
     st.sidebar.info("まだ送信記録がありません")
 
 if "🔵" in mode:
+    # 案件種別に基づいてトリガーをフィルタリング
+    current_deal_type = "買取" if "買取" in deal_type else "車販"
+    
     phases = {}
     for t in TRIGGERS:
         if t["pattern"] == "受動":
+            continue
+        if t.get("deal_type", "買取") not in [current_deal_type, "共通"]:
             continue
         phase = t["phase"]
         if phase not in phases:
             phases[phase] = []
         phases[phase].append(t)
     
-    st.subheader("① トリガーを選択")
-    phase_names = list(phases.keys())
-    tabs = st.tabs(phase_names)
-    
-    for tab, phase_name in zip(tabs, phase_names):
-        with tab:
-            cols = st.columns(3)
-            for i, trigger in enumerate(phases[phase_name]):
-                with cols[i % 3]:
-                    if st.button(f"#{trigger['id']} {trigger['name']}", key=f"trigger_{trigger['id']}", use_container_width=True):
-                        st.session_state["selected_trigger_id"] = trigger["id"]
-                        for key in ["draft_subject", "draft_body", "draft_trigger_name", "draft_customer_name", "draft_email_to"]:
-                            if key in st.session_state:
-                                del st.session_state[key]
+    if not phases:
+        st.subheader(f"① トリガーを選択（{current_deal_type}）")
+        st.info(f"🚧 {current_deal_type}用のトリガーは現在準備中です。\n\n「⚙️ テンプレート管理」の「➕ 新規追加」からテンプレートを追加し、triggers.jsonに車販用トリガーを登録してください。")
+    else:
+        st.subheader(f"① トリガーを選択（{current_deal_type}）")
+        phase_names = list(phases.keys())
+        tabs = st.tabs(phase_names)
+        
+        for tab, phase_name in zip(tabs, phase_names):
+            with tab:
+                cols = st.columns(3)
+                for i, trigger in enumerate(phases[phase_name]):
+                    with cols[i % 3]:
+                        if st.button(f"#{trigger['id']} {trigger['name']}", key=f"trigger_{trigger['id']}", use_container_width=True):
+                            st.session_state["selected_trigger_id"] = trigger["id"]
+                            for key in ["draft_subject", "draft_body", "draft_trigger_name", "draft_customer_name", "draft_email_to"]:
+                                if key in st.session_state:
+                                    del st.session_state[key]
     
     if "selected_trigger_id" in st.session_state:
         trigger_id = st.session_state["selected_trigger_id"]

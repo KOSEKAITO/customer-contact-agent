@@ -15,7 +15,8 @@
       "オンライン手段",
       "参加URL"
     ],
-    "description": "商談予約完了後、確認連絡を送る"
+    "description": "商談予約完了後、確認連絡を送る",
+    "deal_type": "買取"
   },
   {
     "id": 2,
@@ -33,7 +34,8 @@
       "参加URL",
       "画像URL"
     ],
-    "description": "商談3日前のリマインド"
+    "description": "商談3日前のリマインド",
+    "deal_type": "買取"
   },
   {
     "id": 3,
@@ -51,7 +53,8 @@
       "参加URL",
       "画像URL"
     ],
-    "description": "商談前日のリマインド"
+    "description": "商談前日のリマインド",
+    "deal_type": "買取"
   },
   {
     "id": 4,
@@ -69,7 +72,8 @@
       "参加URL",
       "画像URL"
     ],
-    "description": "商談1時間前のリマインド"
+    "description": "商談1時間前のリマインド",
+    "deal_type": "買取"
   },
   {
     "id": 5,
@@ -84,7 +88,8 @@
       "顧客名",
       "画像URL"
     ],
-    "description": "写真未提出の場合のアップロード催促"
+    "description": "写真未提出の場合のアップロード催促",
+    "deal_type": "買取"
   },
   {
     "id": 6,
@@ -98,7 +103,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "LINEヒアリング未返信時のリマインド"
+    "description": "LINEヒアリング未返信時のリマインド",
+    "deal_type": "買取"
   },
   {
     "id": 7,
@@ -119,7 +125,8 @@
       "顧客名",
       "予約URL"
     ],
-    "description": "不成立・キャンセル後の再商談誘導"
+    "description": "不成立・キャンセル後の再商談誘導",
+    "deal_type": "買取"
   },
   {
     "id": 8,
@@ -133,7 +140,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "再商談誘導後、未返信時のフォロー（3日以内）"
+    "description": "再商談誘導後、未返信時のフォロー（3日以内）",
+    "deal_type": "買取"
   },
   {
     "id": 9,
@@ -148,7 +156,8 @@
       "顧客名",
       "フォームURL"
     ],
-    "description": "契約確約後のフロー案内とフォーム入力依頼（1通に統合）"
+    "description": "契約確約後のフロー案内とフォーム入力依頼（1通に統合）",
+    "deal_type": "買取"
   },
   {
     "id": 10,
@@ -163,7 +172,8 @@
       "顧客名",
       "基準日"
     ],
-    "description": "署名完了後、陸送日程の候補を聞く"
+    "description": "署名完了後、陸送日程の候補を聞く",
+    "deal_type": "買取"
   },
   {
     "id": 11,
@@ -183,7 +193,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "陸送会社と調整完了後、顧客に日程を報告"
+    "description": "陸送会社と調整完了後、顧客に日程を報告",
+    "deal_type": "買取"
   },
   {
     "id": 12,
@@ -197,7 +208,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "必要書類未返送時の催促"
+    "description": "必要書類未返送時の催促",
+    "deal_type": "買取"
   },
   {
     "id": 13,
@@ -217,7 +229,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "残債不足金額確定後の請求案内"
+    "description": "残債不足金額確定後の請求案内",
+    "deal_type": "買取"
   },
   {
     "id": 14,
@@ -231,7 +244,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "支払期日超過時の催促"
+    "description": "支払期日超過時の催促",
+    "deal_type": "買取"
   },
   {
     "id": 15,
@@ -251,7 +265,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "社内の支払申請承認後、入金予定日を報告"
+    "description": "社内の支払申請承認後、入金予定日を報告",
+    "deal_type": "買取"
   },
   {
     "id": 16,
@@ -271,7 +286,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "入金処理完了後の報告"
+    "description": "入金処理完了後の報告",
+    "deal_type": "買取"
   },
   {
     "id": 17,
@@ -285,7 +301,8 @@
     "auto_variables": [
       "顧客名"
     ],
-    "description": "契約手続き完了後のサブスクサービス案内"
+    "description": "契約手続き完了後のサブスクサービス案内",
+    "deal_type": "買取"
   },
   {
     "id": 18,
@@ -303,6 +320,7 @@
       }
     ],
     "auto_variables": [],
-    "description": "顧客からのメール/LINEを解析し、適切なテンプレートを自動選択してドラフト生成"
+    "description": "顧客からのメール/LINEを解析し、適切なテンプレートを自動選択してドラフト生成",
+    "deal_type": "共通"
   }
 ]
